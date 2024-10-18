@@ -43,3 +43,27 @@
     color: #590925;
 }
 
+#reset-but {
+    padding: 1rem;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+.resetLight {
+    background-color: #1affd5;
+    color:#590925;
+}
+
+.resetDark {
+     background-color: #ffb6b3;
+     color: #4c0606;
+}
+
+#darklight{
+    padding: 1rem;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 1rem;
+}
+
