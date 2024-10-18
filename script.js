@@ -5,6 +5,8 @@ let dLbut = document.querySelector("#darklight");
 let newBut = document.querySelector("#newGame");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
+let turno = document.querySelector("#turnO");
+let turnx = document.querySelector("#turnX");
 // dark and light mode logic
 
 let mode = "light";
@@ -21,6 +23,12 @@ modebut.addEventListener("click", ()=>{
         dLbut.classList.remove("resetLight");
         newBut.classList.add("resetDark");
         newBut.classList.remove("resetLight");
+        resertbut.classList.add("hovereffD");
+        resertbut.classList.remove("hovereff");
+        dLbut.classList.add("hovereffD");
+        dLbut.classList.remove("hovereff");
+        newBut.classList.add("hovereffD");
+        newBut.classList.remove("hovereff");
     } else {
         mode = "light";
         body.classList.add("light");
@@ -32,6 +40,13 @@ modebut.addEventListener("click", ()=>{
         dLbut.classList.remove("resetDark");
         newBut.classList.add("resetLight");
         newBut.classList.remove("resetDark");
+        resertbut.classList.add("hovereff");
+        resertbut.classList.remove("hovereffD");
+        dLbut.classList.add("hovereff");
+        dLbut.classList.remove("hovereffD");
+        newBut.classList.add("hovereff");
+        newBut.classList.remove("hovereffD");
+
     }
 });
 
@@ -56,16 +71,23 @@ const resetGame = () => {
     turnO = true;
     enableboxes();
     msgContainer.classList.add("hide");
+    turno.classList.add("turnl");
+    turnx.classList.remove("turnl");
 };
+
 
 boxes.forEach((box) => {
     box.addEventListener("click", () =>{
         if (turnO){
             box.innerText = "O";
             turnO = false;
+            turno.classList.remove("turnl");
+            turnx.classList.add("turnl");
         } else{
             box.innerText = "X";
             turnO = true;
+            turno.classList.add("turnl");
+            turnx.classList.remove("turnl");
         }
         box.disabled = true;
 
@@ -92,18 +114,18 @@ const showWinner = (winner) => {
     disableboxes();
 };
 
+
 const checkWinner = () => {
     for(let patterns of winPatterns){
         let pos1val = boxes[patterns[0]].innerText;
         let pos2val = boxes[patterns[1]].innerText;
         let pos3val = boxes[patterns[2]].innerText;
-
+        
         if(pos1val != "" && pos2val != "" && pos3val != ""){
             if(pos1val === pos2val && pos2val === pos3val){
-                console.log("Winner", pos1val);
                 showWinner(pos1val);
-            }
-        }
+            } 
+        } 
     }
 };
 
