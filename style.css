@@ -3,9 +3,15 @@
     padding: 0;
 }
 
-body {
+.light {
     background: linear-gradient(to right,#d4dcff , #7d83ff, #007fff);
     text-align: center;
+}
+
+.dark {
+    background: linear-gradient(to right, #2a0a11, #110e15, #000000);
+    text-align: center;
+    color: white;
 }
 
 
@@ -33,5 +39,7 @@ body {
     border: none;
     box-shadow: 0 0 1rem rgba(0,0,0,0.3);
     font-size: 8vmin;
-    color: #590525;
+    background-color: #e4e3e9;
+    color: #590925;
 }
+
